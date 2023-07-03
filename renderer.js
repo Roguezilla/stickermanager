@@ -6,9 +6,11 @@ document.getElementById('close').addEventListener('click', () => {
     window.api.ipcSend('buttonClick', 'close')
 })
 
-document.getElementById('add').addEventListener('click', () => {
-    window.api.ipcSend('python', document.getElementById('stickerid').value)
-    document.getElementById('stickerid').value = ''
+document.getElementById('stickerid').addEventListener('keypress', (e) => {
+    if (e.key == 'Enter') {
+        window.api.ipcSend('python', document.getElementById('stickerid').value)
+        document.getElementById('stickerid').value = ''
+    }
 })
 
 var foldersToDelete = [];

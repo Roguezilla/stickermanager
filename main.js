@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, globalShortcut, Tray, Menu } = require('electron')
+const { app, BrowserWindow, ipcMain, globalShortcut, Tray, Menu, Notification } = require('electron')
 const path = require('path')
 const fs = require('fs')
 const chokidar = require('chokidar')
@@ -54,7 +54,11 @@ ipcMain.on('buttonClick', (event, name) => {
 ipcMain.on('python', (_, id) => {
     let py = spawn('python', ['linedl.py', `https://store.line.me/stickershop/product/${id}/ja`])
 	py.on('close', () => {
-		console.log(`added id ${id}`)
+		new Notification({
+			title: 'Sticker Manager',
+			body: `Sticker pack added.`,
+			silent: true
+		}).show()
 	})
 })
 

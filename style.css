@@ -1,12 +1,12 @@
 body {
     margin: 0;
-    background-color: #293241;
+    background-color: #A2D2FF;
     overflow: hidden;
 }
 
 .titlebar {
     display: flex;
-    background-color: #293241;
+    background-color: #A2D2FF;
     color: #e0fbfc;
     font-weight: bold;
     padding: 0 0 0 5px;
@@ -44,7 +44,7 @@ body {
 }
 
 .sidebar {
-    background-color: #293241;
+    background-color: #A2D2FF;
     grid-area: sidebar;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -53,9 +53,20 @@ body {
 .sidebar img {
     width: calc(370px / 3.5);
     height: calc(320px / 3.5);
-    margin: auto;
-    display: block;
     border: dashed 2.5px transparent;
+    margin-left: 2px;
+    vertical-align: middle; /* fixes the small gap under images */
+}
+
+.panel input {
+    width: 100%;
+    background-color: #BDE0FE;
+    border: none;
+    text-align: center;
+}
+
+.panel input:focus {
+    outline-width: 0;
 }
 
 .sidebar img:hover {
@@ -63,7 +74,7 @@ body {
 }
 
 .content {
-    background-color: #98c1d9;
+    background-color: #BDE0FE;
     color: #293241;
     grid-area: content;
     overflow-y: scroll;
@@ -74,8 +85,7 @@ body {
 .content img {
     width: calc(370px / 3);
     height: calc(320px / 3);
-    vertical-align: middle;
-    /* fixes the small gap under images */
+    vertical-align: middle; /* fixes the small gap under images */
     border: dashed 2.5px transparent;
 }
 
