@@ -10,7 +10,11 @@ import re
 url = sys.argv[1]
 pack_id = re.search(r'(\d+)', url)[0]
 request = requests.get(sys.argv[1])
-title = BeautifulSoup(request.content, 'html.parser').find('p', attrs = {'data-test': 'sticker-name-title'}).getText()
+try:
+    title = BeautifulSoup(request.content, 'html.parser').find('p', attrs = {'data-test': 'sticker-name-title'}).getText()
+except:
+    title = BeautifulSoup(request.content, 'html.parser').find('div', attrs = {'role': 'main'}).find('h2').getText()
+
 zipurl = f'https://stickershop.line-scdn.net/stickershop/v1/product/{pack_id}/iphone/stickers@2x.zip'
 
 with ZipFile(BytesIO(requests.get(zipurl).content), 'r') as zip_ref:

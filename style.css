@@ -10,14 +10,14 @@ body {
     color: #e0fbfc;
     font-weight: bold;
     padding: 0 0 0 5px;
-
+    
     .left {
         -webkit-user-select: none;
         user-select: none;
         -webkit-app-region: drag;
         flex-grow: 1;
     }
-
+    
     .right {
         border-color: transparent;
         background-color: transparent;
@@ -30,12 +30,17 @@ body {
     -webkit-app-region: no-drag;
 }
 
-.layout {  
+.layout {
     width: 750px;
     height: 455px;
     display: grid;
     grid:
-      "sidebar content" 1fr / 15% 1fr;
+    "sidebar content"
+    "panel content" 1fr / 15% 1fr;
+}
+
+.panel {
+    display: flex;
 }
 
 .sidebar {
@@ -57,12 +62,6 @@ body {
     border-color: white;
 }
 
-.sidebar button {
-    border-color: transparent;
-    background-color: #293241;
-    color: #e0fbfc;
-}
-
 .content {
     background-color: #98c1d9;
     color: #293241;
@@ -75,7 +74,8 @@ body {
 .content img {
     width: calc(370px / 3);
     height: calc(320px / 3);
-    vertical-align: middle; /* fixes the small gap under images */
+    vertical-align: middle;
+    /* fixes the small gap under images */
     border: dashed 2.5px transparent;
 }
 
@@ -92,16 +92,16 @@ body {
     text-align: center;
 }
 
-.sidebar::-webkit-scrollbar{
+.sidebar::-webkit-scrollbar {
     display: none;
 }
 
-.content::-webkit-scrollbar{
+.content::-webkit-scrollbar {
     display: none;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
